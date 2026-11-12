@@ -1,0 +1,1074 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8" />
+    <meta
+      name="viewport"
+      content="width=device-width, initial-scale=1, viewport-fit=cover"
+    />
+    <title>SIWES Company Finder – Nigeria</title>
+    <link rel="stylesheet" href="style.css" />
+
+    <style>
+      :root {
+        color-scheme: light;
+        --bg: #f5f7f4;
+        --surface: #ffffff;
+        --fg: #17251f;
+        --muted: #68776f;
+        --line: #e1e8e2;
+        --acc: #176b4d;
+        --acc-dark: #10563d;
+        --acc-soft: #e7f3ec;
+        --shadow: 0 12px 34px rgba(25, 48, 35, 0.07);
+        --radius: 20px;
+      }
+      * {
+        box-sizing: border-box;
+      }
+      html {
+        background: var(--bg);
+        scroll-behavior: smooth;
+      }
+      body {
+        margin: 0;
+        background: var(--bg);
+        color: var(--fg);
+        font:
+          15px/1.55 Inter,
+          ui-sans-serif,
+          system-ui,
+          -apple-system,
+          BlinkMacSystemFont,
+          "Segoe UI",
+          sans-serif;
+        -webkit-font-smoothing: antialiased;
+      }
+      button,
+      input,
+      select,
+      textarea {
+        font: inherit;
+      }
+      button,
+      a,
+      input,
+      select,
+      textarea {
+        -webkit-tap-highlight-color: transparent;
+      }
+      button {
+        cursor: pointer;
+      }
+      a {
+        color: var(--acc);
+        text-underline-offset: 3px;
+      }
+      .w {
+        width: min(1440px, 100%);
+        margin: 0 auto;
+        padding: 38px clamp(16px, 4vw, 56px) 48px;
+      }
+      #app > h1 {
+        margin: 0;
+        color: #153b2c;
+        font-size: clamp(2rem, 4vw, 3.1rem);
+        line-height: 1.08;
+        letter-spacing: -0.055em;
+        font-weight: 800;
+      }
+      .sub {
+        margin: 12px 0 28px;
+        color: var(--muted);
+        font-size: clamp(1rem, 1.5vw, 1.12rem);
+        max-width: 650px;
+      }
+      .bar {
+        display: flex;
+        align-items: center;
+        gap: 12px;
+        flex-wrap: wrap;
+        margin: 0 0 24px;
+      }
+      .bar input[type="search"] {
+        flex: 1 1 300px;
+        min-width: 0;
+        min-height: 50px;
+        padding: 0 17px 0 46px;
+        border: 1px solid #dce5dd;
+        border-radius: 14px;
+        color: var(--fg);
+        background-color: #fff;
+        background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='20' height='20' viewBox='0 0 24 24' fill='none' stroke='%2368776f' stroke-width='2' stroke-linecap='round'%3E%3Ccircle cx='11' cy='11' r='7'/%3E%3Cpath d='m20 20-4-4'/%3E%3C/svg%3E");
+        background-repeat: no-repeat;
+        background-position: 16px center;
+        box-shadow: 0 2px 5px rgba(20, 40, 28, 0.02);
+      }
+      input,
+      select,
+      textarea {
+        max-width: 100%;
+      }
+      input:focus-visible,
+      select:focus-visible,
+      textarea:focus-visible,
+      button:focus-visible,
+      a:focus-visible {
+        outline: 3px solid rgba(36, 139, 93, 0.25);
+        outline-offset: 2px;
+      }
+      .btn {
+        display: inline-flex;
+        align-items: center;
+        justify-content: center;
+        gap: 7px;
+        min-height: 42px;
+        padding: 9px 15px;
+        border: 1px solid var(--line);
+        border-radius: 12px;
+        background: #fff;
+        color: #34463c;
+        text-decoration: none;
+        font-size: 0.9rem;
+        font-weight: 650;
+        transition:
+          transform 0.16s ease,
+          box-shadow 0.16s ease,
+          background 0.16s ease,
+          border-color 0.16s ease;
+      }
+      .btn:hover {
+        transform: translateY(-1px);
+        border-color: #b8cbbd;
+        box-shadow: 0 5px 14px rgba(22, 57, 37, 0.08);
+      }
+      .btn.p {
+        background: var(--acc);
+        border-color: var(--acc);
+        color: #fff !important;
+      }
+      .btn.p:hover {
+        background: var(--acc-dark);
+        border-color: var(--acc-dark);
+      }
+      .btn.d {
+        color: #a33636;
+        border-color: #f0d5d5;
+        background: #fff8f8;
+      }
+      .main {
+        display: grid;
+        grid-template-columns: minmax(300px, 0.82fr) minmax(0, 1.5fr);
+        gap: 22px;
+        align-items: start;
+      }
+      .main > div {
+        min-width: 0;
+      }
+      .main > div:first-child,
+      .panel {
+        background: var(--surface);
+        border: 1px solid var(--line);
+        border-radius: var(--radius);
+        box-shadow: var(--shadow);
+      }
+      .main > div:first-child {
+        padding: clamp(12px, 2vw, 24px);
+        position: sticky;
+        top: 18px;
+      }
+      .main svg {
+        display: block;
+        width: 100%;
+        height: auto;
+        max-height: 530px;
+        overflow: visible;
+      }
+      .main svg [data-a] {
+        cursor: pointer;
+        transition: opacity 0.18s ease;
+      }
+      .main svg [data-a]:hover {
+        opacity: 0.78 !important;
+      }
+      .panel {
+        padding: clamp(20px, 3vw, 32px);
+        min-height: 360px;
+      }
+      h2 {
+        color: #183d2d;
+        font-size: clamp(1.3rem, 2vw, 1.7rem);
+        line-height: 1.2;
+        letter-spacing: -0.03em;
+        margin: 0 0 10px;
+      }
+      h3 {
+        margin: 0;
+        font-size: 1rem;
+        line-height: 1.35;
+        letter-spacing: -0.015em;
+      }
+      .meta {
+        color: var(--muted);
+        font-size: 0.88rem;
+      }
+      .grid {
+        display: grid;
+        grid-template-columns: repeat(2, minmax(0, 1fr));
+        gap: 13px;
+        margin-top: 18px;
+      }
+      .card {
+        min-width: 0;
+        padding: 17px;
+        border: 1px solid var(--line);
+        border-radius: 16px;
+        background: #fff;
+        transition:
+          transform 0.18s ease,
+          border-color 0.18s ease,
+          box-shadow 0.18s ease;
+        cursor: pointer;
+      }
+      .card:hover {
+        transform: translateY(-2px);
+        border-color: #c3d8c8;
+        box-shadow: 0 9px 24px rgba(24, 60, 39, 0.07);
+      }
+      .card > div:first-child {
+        align-items: center;
+      }
+      .card h3 {
+        overflow-wrap: anywhere;
+      }
+      .lgo {
+        flex: 0 0 auto;
+        display: inline-flex;
+        align-items: center;
+        justify-content: center;
+        width: 48px;
+        height: 48px;
+        border-radius: 14px;
+        color: #fff;
+        font-size: 0.95rem;
+        font-weight: 800;
+        letter-spacing: -0.03em;
+        box-shadow: inset 0 0 0 1px rgba(255, 255, 255, 0.18);
+      }
+      .card .lgo {
+        width: 42px !important;
+        height: 42px !important;
+        font-size: 0.82rem !important;
+        border-radius: 12px;
+      }
+      .card .meta {
+        display: block;
+        margin: 12px 0 10px;
+      }
+      .badge {
+        display: inline-flex;
+        align-items: center;
+        max-width: 100%;
+        padding: 4px 8px;
+        border-radius: 999px;
+        background: #eef2ef;
+        color: #506157;
+        font-size: 0.72rem;
+        font-weight: 650;
+      }
+      .badge.ai {
+        color: #80591b;
+        background: #fff4d8;
+      }
+      .act {
+        display: flex;
+        align-items: center;
+        flex-wrap: wrap;
+        gap: 8px;
+        margin-top: 15px;
+      }
+      .act a,
+      .act button {
+        font-size: 0.82rem;
+      }
+      .rep {
+        display: grid;
+        gap: 5px;
+        margin-top: 16px;
+      }
+      .rr {
+        display: grid;
+        grid-template-columns: 10px minmax(0, 1fr) 32px minmax(65px, 25%);
+        gap: 11px;
+        align-items: center;
+        width: 100%;
+        padding: 12px 10px;
+        border: 1px solid transparent;
+        border-radius: 12px;
+        text-align: left;
+        color: var(--fg);
+        background: transparent;
+        transition:
+          background 0.15s ease,
+          border-color 0.15s ease;
+      }
+      .rr:hover {
+        background: #f5f9f5;
+        border-color: var(--line);
+      }
+      .rr i {
+        width: 9px;
+        height: 30px;
+        border-radius: 99px;
+      }
+      .rr b {
+        font-size: 0.9rem;
+        font-weight: 650;
+      }
+      .rr > span:nth-of-type(1) {
+        color: var(--muted);
+        font-size: 0.85rem;
+        text-align: right;
+        font-variant-numeric: tabular-nums;
+      }
+      .bt {
+        height: 6px;
+        overflow: hidden;
+        border-radius: 999px;
+        background: #edf1ed;
+      }
+      .bt s {
+        display: block;
+        height: 100%;
+        border-radius: inherit;
+        background: var(--acc);
+      }
+      .back {
+        display: flex;
+        gap: 8px;
+        flex-wrap: wrap;
+        margin-bottom: 20px;
+      }
+      .hd {
+        display: flex;
+        align-items: center;
+        gap: 15px;
+        margin: 5px 0 25px;
+      }
+      .hd h2 {
+        margin: 0 0 7px;
+        overflow-wrap: anywhere;
+      }
+      .dl {
+        display: grid;
+        grid-template-columns: minmax(100px, 0.34fr) minmax(0, 1fr);
+        gap: 0;
+        margin: 0;
+        border-top: 1px solid var(--line);
+      }
+      .dl dt,
+      .dl dd {
+        margin: 0;
+        padding: 15px 0;
+        border-bottom: 1px solid var(--line);
+      }
+      .dl dt {
+        color: var(--muted);
+        font-size: 0.88rem;
+        font-weight: 650;
+      }
+      .dl dd {
+        overflow-wrap: anywhere;
+      }
+      .tags {
+        display: flex;
+        flex-wrap: wrap;
+        gap: 7px;
+      }
+      .tag {
+        padding: 6px 10px;
+        border: 1px solid #cfe2d5;
+        border-radius: 999px;
+        background: var(--acc-soft);
+        color: var(--acc-dark);
+        font-size: 0.8rem;
+        font-weight: 600;
+      }
+      .pub {
+        display: none;
+        align-items: center;
+        justify-content: space-between;
+        gap: 12px;
+        margin-top: 22px;
+        padding: 14px 18px;
+        border: 1px solid #cfe3d4;
+        border-radius: 14px;
+        background: #edf8ef;
+        color: #245c39;
+      }
+      .pub.on {
+        display: flex;
+      }
+      .note {
+        margin: 24px 0 0;
+        padding: 14px 16px;
+        border-left: 3px solid #c8d9ca;
+        border-radius: 0 10px 10px 0;
+        color: var(--muted);
+        background: rgba(255, 255, 255, 0.55);
+        font-size: 0.85rem;
+      }
+      #modal.on {
+        position: fixed;
+        inset: 0;
+        z-index: 1000;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        overflow-y: auto;
+        padding: 20px;
+        background: rgba(12, 29, 20, 0.55);
+        backdrop-filter: blur(5px);
+      }
+      #modal .box {
+        width: min(680px, 100%);
+        max-height: min(88vh, 900px);
+        overflow-y: auto;
+        padding: clamp(20px, 4vw, 32px);
+        border: 1px solid rgba(255, 255, 255, 0.6);
+        border-radius: 22px;
+        background: #fff;
+        box-shadow: 0 24px 80px rgba(0, 0, 0, 0.22);
+      }
+      #modal .box h2 {
+        margin-bottom: 18px;
+      }
+      #modal label {
+        display: block;
+        margin: 14px 0 6px;
+        color: #34463c;
+        font-size: 0.86rem;
+        font-weight: 650;
+      }
+      #modal input:not([type="checkbox"]),
+      #modal select,
+      #modal textarea {
+        display: block;
+        width: 100%;
+        min-height: 44px;
+        padding: 10px 12px;
+        border: 1px solid #dbe4dc;
+        border-radius: 10px;
+        background: #fbfcfb;
+        color: var(--fg);
+      }
+      #modal textarea {
+        min-height: 86px;
+        resize: vertical;
+      }
+      #modal .cb {
+        display: grid;
+        grid-template-columns: repeat(2, minmax(0, 1fr));
+        gap: 4px 12px;
+        margin-top: 8px;
+      }
+      #modal .cb label {
+        display: flex;
+        align-items: flex-start;
+        gap: 8px;
+        margin: 5px 0;
+        font-weight: 500;
+      }
+      #modal .cb input {
+        margin-top: 5px;
+        accent-color: var(--acc);
+      }
+      #modal .row {
+        display: flex;
+        flex-wrap: wrap;
+        gap: 9px;
+        margin-top: 22px;
+      }
+      #modal .orig {
+        margin: 12px 0;
+        padding: 12px;
+        border-radius: 10px;
+        background: #f4f7f4;
+        color: var(--muted);
+        font-size: 0.86rem;
+        overflow-wrap: anywhere;
+      }
+      @media (max-width: 900px) {
+        .w {
+          padding-top: 28px;
+        }
+        .main {
+          grid-template-columns: minmax(0, 1fr);
+        }
+        .main > div:first-child {
+          position: static;
+        }
+        .main svg {
+          max-height: 430px;
+        }
+      }
+      @media (max-width: 560px) {
+        .w {
+          padding: 24px 14px 32px;
+        }
+        .bar {
+          gap: 9px;
+        }
+        .bar .btn {
+          flex: 1 1 auto;
+        }
+        .bar input[type="search"] {
+          flex-basis: 100%;
+        }
+        .panel {
+          padding: 18px 14px;
+        }
+        .grid {
+          grid-template-columns: minmax(0, 1fr);
+        }
+        .card {
+          padding: 15px;
+        }
+        .rr {
+          grid-template-columns: 9px minmax(0, 1fr) 26px;
+          gap: 8px;
+        }
+        .rr .bt {
+          display: none;
+        }
+        .dl {
+          grid-template-columns: 1fr;
+        }
+        .dl dt {
+          padding-bottom: 3px;
+          border-bottom: 0;
+        }
+        .dl dd {
+          padding-top: 3px;
+        }
+        #modal.on {
+          align-items: flex-end;
+          padding: 8px;
+        }
+        #modal .box {
+          max-height: 92vh;
+          border-radius: 20px 20px 12px 12px;
+          padding: 22px 17px;
+        }
+        #modal .cb {
+          grid-template-columns: minmax(0, 1fr);
+        }
+        #modal .row .btn {
+          flex: 1 1 auto;
+        }
+        .pub {
+          align-items: flex-start;
+          flex-direction: column;
+        }
+      }
+      @media (prefers-reduced-motion: reduce) {
+        *,
+        *::before,
+        *::after {
+          scroll-behavior: auto !important;
+          transition-duration: 0.01ms !important;
+          animation-duration: 0.01ms !important;
+        }
+      }
+    </style>
+  </head>
+  <body>
+    <nav class="navbar">
+      <div class="navbar-brand">
+        <span class="brand-icon">S</span>
+        <span>SIWES Company Finder</span>
+      </div>
+    </nav>
+    <div class="w"><div id="app"></div></div>
+    <div id="modal"></div>
+    <script src="seed.js"></script>
+    <script>
+      // >>> Set the email where suggestions and company submissions should arrive <<<
+      const OWNER_EMAIL = "YOUR_EMAIL@example.com";
+      const DISC = {
+        CIV: "Civil & Building Eng.",
+        MEC: "Mechanical Eng.",
+        ELE: "Electrical/Electronics & Telecom",
+        CHE: "Chemical & Petroleum Eng.",
+        IT: "Computer Science & IT",
+        FIN: "Accounting, Banking & Finance",
+        BUS: "Business, Marketing & Admin",
+        AGR: "Agriculture & Food Science",
+        HEA: "Pharmacy & Health Sciences",
+        LAB: "Science Labs (Biochem, Micro, Chem)",
+        MED: "Mass Communication & Media",
+        LAW: "Law",
+        ARC: "Architecture, Estate & Surveying",
+        HOS: "Hospitality & Tourism",
+      };
+      const BANDS = ["1–50", "50–200", "200–1,000", "1,000–10,000", "10,000+"];
+      const $ = (s) => document.querySelector(s),
+        keys = Object.keys(DISC);
+      const esc = (s) =>
+        String(s == null ? "" : s).replace(
+          /[&<>"']/g,
+          (c) =>
+            ({
+              "&": "&amp;",
+              "<": "&lt;",
+              ">": "&gt;",
+              '"': "&quot;",
+              "'": "&#39;",
+            })[c],
+        );
+      const slug = (s) =>
+        s
+          .toLowerCase()
+          .replace(/[^a-z0-9]+/g, "-")
+          .replace(/^-|-$/g, "");
+      const fixUrl = (u) => {
+        u = (u || "").trim();
+        if (!u) return "";
+        if (!/^https?:\/\//i.test(u)) u = "https://" + u;
+        try {
+          return new URL(u).href;
+        } catch (e) {
+          return "";
+        }
+      };
+      const ini = (n) =>
+        n
+          .replace(/&/g, " ")
+          .split(/\s+/)
+          .filter((w) => w && !/^(of|the|for|and)$/i.test(w))
+          .slice(0, 2)
+          .map((w) => w[0])
+          .join("")
+          .toUpperCase();
+      const hue = (s) => {
+        let h = 0;
+        for (const c of s) h = (h * 31 + c.charCodeAt(0)) % 360;
+        return h;
+      };
+      const lc = (n) => `hsl(${hue(n)},45%,38%)`,
+        kc = (k) => `hsl(${(keys.indexOf(k) * 360) / keys.length},58%,48%)`;
+      const has = (c, k) => c.disciplines.split(/[\s,]+/).includes(k),
+        find = (id) => D.find((c) => c.id === id);
+      const FIELDS = [
+        "company_name",
+        "company_website",
+        "locations",
+        "disciplines",
+        "description",
+        "employee_range",
+        "linkedin_url",
+        "careers_page",
+        "last_checked",
+        "source",
+      ];
+      let D = [];
+      const uid = (n) => {
+        let b = slug(n),
+          k = b,
+          j = 2;
+        while (D.some((c) => c.id === k)) k = b + "-" + j++;
+        return k;
+      };
+      const mk = (o) => {
+        const c = {};
+        FIELDS.forEach((k) => (c[k] = String(o[k] == null ? "" : o[k])));
+        Object.defineProperty(c, "id", {
+          value: uid(c.company_name),
+          writable: true,
+          enumerable: false,
+        });
+        return c;
+      };
+      window.SEED_DATA.forEach((o) => D.push(mk(o)));
+      let st = { v: "report", k: null, id: null },
+        q = "",
+        pending = 0,
+        owner = false,
+        queue = [],
+        ctx = null;
+      try {
+        window.claude &&
+          claude.use &&
+          claude
+            .use("user")
+            .then((u) => {
+              owner = !!(u && u.isOwner && u.isOwner());
+              render();
+            })
+            .catch(() => {});
+      } catch (e) {}
+
+      function donut() {
+        const segs = keys
+          .map((k) => ({
+            k,
+            items: D.filter((c) => has(c, k)).sort((a, b) =>
+              a.company_name.localeCompare(b.company_name),
+            ),
+          }))
+          .filter((s) => s.items.length);
+        const W = segs.reduce((s, x) => s + x.items.length + 4, 0),
+          P = (a, r) => [300 + r * Math.cos(a), 300 + r * Math.sin(a)];
+        let a = -Math.PI / 2,
+          o = "";
+        segs.forEach((s) => {
+          const sp = ((s.items.length + 4) / W) * 2 * Math.PI,
+            a0 = a + 0.012,
+            a1 = a + sp - 0.012,
+            m = (a0 + a1) / 2;
+          a += sp;
+          const big = a1 - a0 > Math.PI ? 1 : 0,
+            f = (p) => p.map((v) => v.toFixed(1)).join(" ");
+          o += `<g style="opacity:${st.v === "field" && st.k !== s.k ? 0.35 : 1}"><path data-a="field" data-k="${s.k}" fill="${kc(s.k)}" d="M${f(P(a0, 265))}A265 265 0 ${big} 1 ${f(P(a1, 265))}L${f(P(a1, 140))}A140 140 0 ${big} 0 ${f(P(a0, 140))}Z"><title>${esc(DISC[s.k])} (${s.items.length})</title></path>`;
+          const pos = [];
+          [207, 242, 172].forEach((r) => {
+            const n = Math.floor(((a1 - a0) * r) / 34);
+            for (let i = 0; i < n; i++)
+              pos.push([r, a0 + ((a1 - a0) * (i + 0.5)) / n]);
+          });
+          s.items.forEach((c, i) => {
+            if (i >= pos.length) return;
+            const [x, y] = P(pos[i][1], pos[i][0]),
+              more = i === pos.length - 1 && s.items.length > pos.length,
+              sel = st.id === c.id;
+            o += more
+              ? `<g data-a="field" data-k="${s.k}" class="lg"><circle cx="${x}" cy="${y}" r="15" fill="#555" stroke="#fff"/><text x="${x}" y="${y}" font-size="11" text-anchor="middle" dy=".35em">+${s.items.length - pos.length + 1}</text></g>`
+              : `<g data-a="co" data-id="${esc(c.id)}" data-k="${s.k}" class="lg" style="opacity:${st.id && !sel ? 0.4 : 1}"><circle cx="${x}" cy="${y}" r="15" fill="${lc(c.company_name)}" stroke="#fff" stroke-width="${sel ? 3.5 : 1.5}"/><text x="${x}" y="${y}" font-size="11" font-weight="700" text-anchor="middle" dy=".35em">${esc(ini(c.company_name))}</text><title>${esc(c.company_name)}</title></g>`;
+          });
+          const [lx, ly] = P(m, 283);
+          o += `<text x="${lx}" y="${ly}" font-size="11" font-weight="700" text-anchor="middle" dy=".35em">${s.k}</text></g>`;
+        });
+        return `<svg viewBox="0 0 600 600" role="img" aria-label="Companies by discipline">${o}<text x="300" y="285" font-size="44" font-weight="700" text-anchor="middle">${D.length}</text><text x="300" y="318" font-size="15" text-anchor="middle">companies</text><text x="300" y="342" font-size="12" text-anchor="middle" opacity=".7">click a field or logo</text></svg>`;
+      }
+
+      function logo(c, cls) {
+        return `<span class="${cls || "lgo"}" style="background:${lc(c.company_name)}">${esc(ini(c.company_name))}</span>`;
+      }
+      function card(c) {
+        const u = fixUrl(c.company_website);
+        return `<article class="card" data-a="co" data-id="${esc(c.id)}"><div style="display:flex;gap:8px;align-items:center">${logo(c, 'lgo" style="width:34px;height:34px;font-size:.8rem;background:' + lc(c.company_name))}<h3>${esc(c.company_name)}</h3></div><div class="meta">📍 ${esc(c.locations)}</div><div class="act">${u ? `<a href="${esc(u)}" target="_blank" rel="noopener noreferrer">Visit website ↗</a>` : ""}
+          ${true?'':`<button class="btn" data-a="sug" data-id="${esc(c.id)}">Suggest correction</button>`}
+          </div></article>`;
+      }
+      const bdg = (c) =>
+        c.source === "ai"
+          ? '<span class="badge ai">AI-compiled · unverified</span>'
+          : c.source === "co"
+            ? '<span class="badge">Added by company</span>'
+            : '<span class="badge">Reviewed</span>';
+      function matches() {
+        const t = q.toLowerCase();
+        return D.filter(
+          (c) =>
+            (!st.k || has(c, st.k)) &&
+            (!t ||
+              (
+                c.company_name +
+                " " +
+                c.locations +
+                " " +
+                c.disciplines
+                  .split(" ")
+                  .map((k) => DISC[k])
+                  .join(" ")
+              )
+                .toLowerCase()
+                .includes(t)),
+        ).sort((a, b) => a.company_name.localeCompare(b.company_name));
+      }
+      function panel() {
+        if (st.v === "co") {
+          const c = find(st.id);
+          if (!c) {
+            st = { v: "report" };
+            return panel();
+          }
+          const u = fixUrl(c.company_website),
+            li =
+              fixUrl(c.linkedin_url) ||
+              "https://www.linkedin.com/search/results/companies/?keywords=" +
+                encodeURIComponent(c.company_name);
+          return `<div class="back"><button class="btn" data-a="back">← Back to report</button>${st.k ? `<button class="btn" data-a="field" data-k="${st.k}">‹ ${esc(DISC[st.k])}</button>` : ""}</div>
+    <div class="hd">${logo(c)}<div><h2 style="margin:0">${esc(c.company_name)}</h2></div></div>
+    <dl class="dl"><dt>About</dt><dd>${esc(c.description) || '<span class="meta">Not added yet</span>'}</dd>
+      ${true?'':`<dt>Employees</dt><dd>${c.employee_range ? "≈ " + esc(c.employee_range) + ' <span class="meta">(estimate)</span>' : '<span class="meta">Not added yet</span>'}</dd>`}
+      <dt>Locations</dt><dd>${esc(c.locations) || "—"}</dd>
+    <dt>Fields</dt><dd class="tags">${c.disciplines
+      .split(/[\s,]+/)
+      .filter((k) => DISC[k])
+      .map(
+        (k) =>
+          `<button class="tag" data-a="field" data-k="${k}">${esc(DISC[k])}</button>`,
+      )
+      .join("")}</dd></dl>
+    <div class="act">${u ? `<a class="btn p" style="color:#fff" href="${esc(u)}" target="_blank" rel="noopener noreferrer">Visit website ↗</a>` : ""}<a class="btn" style="color:var(--fg)" href="${esc(li)}" target="_blank" rel="noopener noreferrer">${c.linkedin_url ? "LinkedIn ↗" : "Find on LinkedIn ↗"}</a>
+      ${true?'':`<button class="btn" data-a="sug" data-id="${esc(c.id)}">Suggest correction</button>`}
+      ${owner ? `<button class="btn" data-a="edit" data-id="${esc(c.id)}">Edit</button>` : ""}</div>
+    ${fixUrl(c.careers_page) ? `<p style="margin:12px 0 0"><a href="${esc(fixUrl(c.careers_page))}" target="_blank" rel="noopener noreferrer" style="color:var(--acc);font-weight:600">Careers / internship page ↗</a></p>` : ""}<p class="meta" style="margin-top:8px">Check the website to apply${c.last_checked ? " Last checked " + esc(c.last_checked) + "." : ""}</p>`;
+        }
+        if (st.v === "field" || q) {
+          const l = matches();
+          return `<div class="back">${st.v === "field" ? '<button class="btn" data-a="back">← Back to report</button>' : ""}</div><h2>${st.v === "field" ? esc(DISC[st.k]) : "Search results"} <span class="meta">(${l.length})</span></h2><div class="grid">${l.map(card).join("") || '<p class="meta">No companies match yet.</p>'}</div>`;
+        }
+        const max = Math.max(
+          1,
+          ...keys.map((k) => D.filter((c) => has(c, k)).length),
+        );
+        return `<h2>Report: companies by field</h2><p class="meta" style="margin:0 0 8px">${D.length} companies · click a field to see them</p><div class="rep">${keys
+          .map((k) => {
+            const n = D.filter((c) => has(c, k)).length;
+            return `<button class="rr" data-a="field" data-k="${k}"><i style="background:${kc(k)}"></i><b>${esc(DISC[k])}</b><span>${n}</span><span class="bt"><s style="width:${(n / max) * 100}%"></s></span></button>`;
+          })
+          .join("")}</div>`;
+      }
+      function render() {
+        $("#app").innerHTML = `<p class="sub">Find Nigerian companies for your Industrial Training by discipline.</p>
+  <div class="bar"><input type="search" id="q" placeholder="Search company, city or discipline…" value="${esc(q)}">
+    ${true?'':`<button class="btn p" data-a="new">+ Add your company</button>`}
+    ${owner ? '<button class="btn" data-a="admin">Review submissions</button><button class="btn" data-a="imp">Import list</button><input type="file" id="imf" accept=".json" hidden>' : ""}</div>
+  <div class="main"><div>${donut()}</div><div class="panel">${panel()}</div></div>
+  <div class="pub ${owner && pending ? "on" : ""}"><span>${pending} unpublished change${pending == 1 ? "" : "s"}</span><button class="btn" data-a="publish">Publish changes</button></div>
+  <p class="note">This directory uses Python-based web scraping, automated data validation, and AI-assisted classification where available to compile SIWES company information from public sources. The data is not 100% accurate and may be incomplete, outdated, or incorrectly classified. Listings do not guarantee ITF approval or current SIWES placement availability.</p>`;
+        $("#q").oninput = (e) => {
+          q = e.target.value;
+          if (q && st.v === "co") st = { v: "report" };
+          const p = e.target.selectionStart;
+          render();
+          const n = $("#q");
+          n.focus();
+          n.setSelectionRange(p, p);
+        };
+      }
+      function form(v) {
+        v = v || {};
+        const ds = (v.disciplines || "").split(" ");
+        return `<label>Company name</label><input type="text" id="f_company_name" value="${esc(v.company_name)}"><label>Website</label><input type="text" id="f_company_website" value="${esc(v.company_website)}" placeholder="example.com">
+  <label>LinkedIn page (optional)</label><input type="text" id="f_linkedin_url" value="${esc(v.linkedin_url)}"><label>Locations (comma-separated)</label><input type="text" id="f_locations" value="${esc(v.locations)}">
+  ${true ? `<label>Number of employees</label><select id="f_employee_range"><option value="">Not sure</option>${BANDS.map((b) => `<option ${v.employee_range === b ? "selected" : ""}>${b}</option>`).join("")}</select>` : ""}
+  <label>Short description</label><textarea id="f_description" rows="2">${esc(v.description)}</textarea><label>Disciplines that can work here</label><div class="cb">${keys.map((k) => `<label><input type="checkbox" class="f_disciplines" value="${k}" ${ds.includes(k) ? "checked" : ""}>${DISC[k]}</label>`).join("")}</div>`;
+      }
+      const collect = () => ({
+        company_name: $("#f_company_name").value.trim(),
+        company_website: $("#f_company_website").value.trim(),
+        linkedin_url: $("#f_linkedin_url").value.trim(),
+        locations: $("#f_locations").value.trim(),
+        employee_range: $("#f_employee_range").value,
+        description: $("#f_description").value.trim(),
+        disciplines: [...document.querySelectorAll(".f_disciplines:checked")]
+          .map((x) => x.value)
+          .join(" "),
+      });
+      function open(h) {
+        $("#modal").innerHTML = `<div class="box">${h}</div>`;
+        $("#modal").classList.add("on");
+      }
+      function close() {
+        $("#modal").classList.remove("on");
+        $("#modal").innerHTML = "";
+      }
+      function mail(type, id, f, note) {
+        if (!f.company_name || !f.company_website || !f.disciplines) {
+          alert(
+            "Please give the company name, website and at least one discipline.",
+          );
+          return;
+        }
+        const p = {
+          kind: type,
+          target: id ? find(id).company_name : null,
+          fields: f,
+          note: note || "",
+        };
+        const body = `${type === "new" ? "New company" : "Suggested correction"}\nName: ${f.company_name}\nWebsite: ${f.company_website}\nLinkedIn: ${f.linkedin_url || "-"}\nLocations: ${true?``:f.locations}\nEmployees: ${f.employee_range || "-"}\nAbout: ${f.description || "-"}\nDisciplines: ${f.disciplines
+          .split(" ")
+          .map((k) => DISC[k])
+          .join(
+            ", ",
+          )}\nNote: ${note || "-"}\n\nPlease don’t edit below this line:\n[SIWES-DB]${JSON.stringify(p)}[/SIWES-DB]`;
+        open(
+          `<h2>Almost done</h2><p>Your email app should open with a message to the site owner. Press <b>Send</b>. If nothing opens, copy the text below and email it to <b>${esc(OWNER_EMAIL)}</b>.</p><textarea id="mb" rows="8" readonly>${esc(body)}</textarea><div class="row"><button class="btn p" data-a="copy">Copy text</button><button class="btn" data-a="close">Close</button></div>`,
+        );
+        location.href = `mailto:${OWNER_EMAIL}?subject=${encodeURIComponent((type === "new" ? "New SIWES company: " : "SIWES correction: ") + f.company_name)}&body=${encodeURIComponent(body)}`;
+      }
+      function review() {
+        if (!queue.length) {
+          open(
+            `<h2>Review submissions</h2><p>Paste one or more submission emails below.</p><textarea id="paste" rows="8" placeholder="Paste email text here…"></textarea><div class="row"><button class="btn p" data-a="load">Load</button><button class="btn" data-a="close">Close</button></div>`,
+          );
+          return;
+        }
+        const p = queue[0],
+          o = p.target && D.find((c) => c.company_name === p.target);
+        open(
+          `<h2>${o ? "Correction for " + esc(o.company_name) : "New company"} <small>(${queue.length} left)</small></h2>${
+            o
+              ? `<div class="orig">Current: ${esc(o.company_name)} · ${esc(o.company_website)} · ${esc(o.locations)} · ${esc(o.employee_range || "")} · ${o.disciplines
+                  .split(" ")
+                  .map((k) => DISC[k])
+                  .join(", ")}</div>`
+              : ""
+          }${p.note ? `<div class="orig">Note: ${esc(p.note)}</div>` : ""}${form(p.fields)}<div class="row"><button class="btn p" data-a="accept">Accept (with any edits)</button><button class="btn d" data-a="reject">Reject</button><button class="btn" data-a="close">Close</button></div>`,
+        );
+      }
+      document.addEventListener("click", (e) => {
+        if (e.target.closest("a")) return;
+        const t = e.target.closest("[data-a]");
+        if (!t) return;
+        const a = t.dataset.a,
+          id = t.dataset.id,
+          k = t.dataset.k;
+        if (a === "field") {
+          q = "";
+          st = { v: "field", k };
+          render();
+        } else if (a === "co") {
+          st = { v: "co", id, k: k || (st.v === "field" ? st.k : null) };
+          render();
+        } else if (a === "back") {
+          st = { v: "report" };
+          q = "";
+          render();
+        } else if (a === "close") close();
+        else if (a === "new")
+          open(
+            `<h2>Add your company</h2>${form()}<label>Anything else? (optional)</label><textarea id="nt" rows="2"></textarea><div class="row"><button class="btn p" data-a="sendnew">Send for review</button><button class="btn" data-a="close">Cancel</button></div>`,
+          );
+        else if (a === "sendnew") mail("new", null, collect(), $("#nt").value);
+        else if (a === "sug") {
+          ctx = id;
+          open(
+            `<h2>Suggest a correction</h2>${form(find(id))}<label>What’s wrong? (optional)</label><textarea id="nt" rows="2"></textarea><div class="row"><button class="btn p" data-a="sendsug">Send for review</button><button class="btn" data-a="close">Cancel</button></div>`,
+          );
+        } else if (a === "sendsug") mail("sug", ctx, collect(), $("#nt").value);
+        else if (a === "copy") {
+          const m = $("#mb");
+          m.select();
+          try {
+            navigator.clipboard.writeText(m.value);
+          } catch (x) {
+            document.execCommand("copy");
+          }
+        } else if (a === "admin") {
+          queue = [];
+          review();
+        } else if (a === "load") {
+          const r = /\[SIWES-DB\]([\s\S]*?)\[\/SIWES-DB\]/g;
+          let m;
+          queue = [];
+          while ((m = r.exec($("#paste").value))) {
+            try {
+              const p = JSON.parse(m[1]);
+              if (p && p.fields) queue.push(p);
+            } catch (x) {}
+          }
+          if (!queue.length) {
+            alert("No submissions found in that text.");
+            return;
+          }
+          review();
+        } else if (a === "accept") {
+          const p = queue.shift(),
+            f = collect(),
+            o = p.target && D.find((c) => c.company_name === p.target);
+          if (o) Object.assign(o, f, { source: "v" });
+          else {
+            D.push(mk(Object.assign({}, f, { source: "v" })));
+          }
+          pending++;
+          render();
+          review();
+        } else if (a === "reject") {
+          queue.shift();
+          review();
+        } else if (a === "edit") {
+          ctx = id;
+          open(
+            `<h2>Edit company</h2>${form(find(id))}<div class="row"><button class="btn p" data-a="saveedit">Save</button><button class="btn d" data-a="del">Remove</button><button class="btn" data-a="close">Cancel</button></div>`,
+          );
+        } else if (a === "saveedit") {
+          Object.assign(find(ctx), collect(), { source: "v" });
+          pending++;
+          close();
+          render();
+        } else if (a === "del") {
+          if (confirm("Remove this company?")) {
+            D = D.filter((c) => c.id !== ctx);
+            st = { v: "report" };
+            pending++;
+            close();
+            render();
+          }
+        } else if (a === "imp") {
+          const f = $("#imf");
+          f.onchange = async () => {
+            try {
+              const L = JSON.parse(await f.files[0].text()),
+                dm = (u) =>
+                  fixUrl(u)
+                    .replace(/^https?:\/\/(www\.)?/, "")
+                    .split("/")[0],
+                seen = new Set(D.map((c) => dm(c.company_website)));
+              let add = 0;
+              L.forEach((c) => {
+                if (!c || !c.company_name || !c.company_website) return;
+                const d = String(c.disciplines || "")
+                  .split(" ")
+                  .filter((k) => DISC[k])
+                  .join(" ");
+                if (
+                  !d ||
+                  !dm(c.company_website) ||
+                  seen.has(dm(c.company_website))
+                )
+                  return;
+                seen.add(dm(c.company_website));
+                D.push(
+                  mk(Object.assign({}, c, { disciplines: d, source: "ai" })),
+                );
+                add++;
+              });
+              pending += add;
+              alert(
+                add +
+                  " new companies added (duplicates skipped). Press Publish changes to make them live.",
+              );
+              render();
+            } catch (x) {
+              alert("Could not read that file.");
+            }
+            f.value = "";
+          };
+          f.click();
+        } else if (a === "publish") publish();
+      });
+      async function publish() {
+        try {
+          const art = await claude.use("artifact");
+          if (!art) {
+            alert("Publishing isn’t available here.");
+            return;
+          }
+          const cl = document.documentElement.cloneNode(true);
+          window.SEED_DATA = JSON.stringify(D).replace(/</g, "\\u003c");
+          cl.querySelector("#app").innerHTML = "";
+          cl.querySelector("#modal").innerHTML = "";
+          cl.querySelector("#modal").className = "";
+          await art.publish("<!doctype html>\n" + cl.outerHTML);
+        } catch (e) {
+          alert("Could not publish: " + ((e && e.message) || e));
+        }
+      }
+      render();
+    </script>
+  </body>
+</html>
